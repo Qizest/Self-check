@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>微积分 · 自检 + 抽查</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- MathJax 配置（关键修复） -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                ignoreHtmlClass: 'tex2jax_ignore'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<div class="app">
+    <div class="header">
+        <div class="title">
+            <h1>📐 微积分 · 自检 + 抽查记录</h1>
+            <div class="chapter-selector">
+                <label>📖 选择章节：</label>
+                <select id="chapterSelect"></select>
+            </div>
+        </div>
+        <div class="subtitle">✨ 左侧树形目录自检 | 右侧可抽查全部或当前章节 | 可查看知识点抽查明细</div>
+    </div>
+
+    <div class="main-content">
+        <!-- 左侧树形目录 -->
+        <div class="tree-container">
+            <div class="tree-header">📚 知识点目录</div>
+            <div id="treeView" class="tree-view"></div>
+        </div>
+
+        <!-- 右侧面板 -->
+        <div class="explanation-panel">
+            <!-- 自检测试区 -->
+            <div class="self-check-section">
+                <div class="section-header">
+                    <span>📖 自检测试区</span>
+                    <button id="viewHistoryBtn" class="history-btn" style="display: none;">📜 历史</button>
+                </div>
+                <div class="current-node-info" id="currentNodeInfo">⚡ 当前未选中任何知识点</div>
+                <button id="revealButton" class="reveal-btn">✨ 显示解释 / 自检答案</button>
+                <div class="explanation-content" id="explanationText">
+                    <div class="placeholder-text">
+                        <div class="placeholder-icon">🔍</div>
+                        <div>选中一个知识点后，点击上方按钮<br>对照你的记忆进行检查</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 随机抽查区 -->
+            <div class="quiz-section">
+                <div class="section-header">🎲 随机抽查 · 自测记忆</div>
+                <div class="quiz-mode-selector">
+                    <label>抽查范围：</label>
+                    <select id="quizScope">
+                        <option value="global">🌍 全部章节（全局）</option>
+                        <option value="current">📘 仅当前章节</option>
+                    </select>
+                </div>
+                <button id="randomQuizBtn" class="quiz-btn">🎯 随机抽查一个知识点</button>
+                <div id="quizQuestion" class="quiz-question">✨ 点击上方按钮开始抽查</div>
+                <button id="quizRevealBtn" class="quiz-reveal-btn" style="display: none;">🔎 显示答案 / 对照解释</button>
+                <div id="quizAnswer" class="quiz-answer" style="display: none;"></div>
+                <div id="quizFeedback" class="quiz-feedback" style="display: none;">
+                    <button id="familiarBtn" class="feedback-btn familiar">✅ 熟悉</button>
+                    <button id="unfamiliarBtn" class="feedback-btn unfamiliar">❌ 不熟悉</button>
+                </div>
+                <div class="quiz-stats" id="quizStats">📊 全局统计 | 暂无抽查记录</div>
+                <div class="export-section">
+                    <button id="showAllRecordsBtn" class="export-btn all-records-btn">📊 查看知识点抽查明细</button>
+                    <button id="resetStatsBtn" class="reset-stats-btn">🗑️ 重置所有抽查记录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>微积分复习助手 | 自检模式 + 随机抽查（可全局/按章节） | 点击按钮查看知识点抽查明细表</footer>
+</div>
+
+<!-- 模态框保持不变 -->
+<div id="historyModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span id="modalTitle">历史记录</span>
+            <span class="close">&times;</span>
+        </div>
+        <div id="historyList" class="history-list">加载中...</div>
+    </div>
+</div>
+
+<div id="allRecordsModal" class="modal large-modal">
+    <div class="modal-content large-modal-content">
+        <div class="modal-header">
+            <span>📋 所有知识点抽查明细（行=知识点，列=历次抽查）</span>
+            <span class="close-all">&times;</span>
+        </div>
+        <div id="allRecordsTableContainer" class="all-records-table-container">
+            <table id="allRecordsTable" class="knowledge-table">
+                <thead id="allRecordsHeader"></thead>
+                <tbody id="allRecordsBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="chapters.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
