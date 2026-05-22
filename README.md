@@ -3,7 +3,7 @@
 ## 📖 简介 / Introduction
 
 **中文**  
-一个纯前端的面试复习工具集，目前包含**微积分**与**运筹学**两个独立模块。每个模块均提供知识树目录自检、随机抽查（全局/按章节）和历史记录表格。数据保存在浏览器本地，无需后端。
+一个纯前端的面试复习工具集，目前包含**微积分**、**运筹学**、**概率论与应用统计**三个独立模块。每个模块均提供知识树目录自检、随机抽查（全局/按章节）和历史记录表格。数据保存在浏览器本地，无需后端。
 
 **English**  
 A pure front-end mathematics review toolkit featuring two independent modules: **Calculus** and **Operations Research**. Each module provides a knowledge tree for self-checking, random quiz (global/by chapter), and a detailed history table. All data is stored locally in your browser – no backend required.
@@ -31,6 +31,14 @@ A pure front-end mathematics review toolkit featuring two independent modules: *
 - 动态规划（最优化原理、典型应用）
 - 决策论（不确定决策、风险决策、决策树、前景理论）
 - 博弈论（完全信息静态博弈、矩阵博弈、完全信息动态博弈、不完全信息博弈）
+
+### 🎲 概率论与应用统计模块
+- **随机事件与概率**（事件运算、概率性质、条件概率、乘法公式、全概率公式、贝叶斯公式、独立性）
+- **随机变量及其分布**（分布函数、概率密度、数学期望、方差、协方差、相关系数、矩、特征函数、常见离散/连续分布）
+- **多维随机变量及其分布**（联合分布、边际分布、独立性、条件分布、条件期望、条件方差、随机变量函数的分布）
+- **大数定理与中心极限定理**（依概率收敛、依分布收敛、切比雪夫大数定律、辛钦大数定律、伯努利大数定律、林德伯格-莱维CLT、李雅普诺夫CLT）
+- **统计量及其分布**（样本与总体、样本均值/方差、三大抽样分布（卡方、t、F）、抽样分布定理、矩估计、极大似然估计、无偏性/有效性/相合性、区间估计）
+- **检验**（假设检验原理、p值、Z检验、t检验、卡方检验、F检验、单因素方差分析、卡方拟合优度检验、独立性检验、相关性检验、一元/多元线性回归）
 
 ## 🚀 使用方法 / How to Use
 
