@@ -6,7 +6,7 @@ let currentQuizNode = null;
 let currentQuizChapterId = null;
 let currentQuizChapterName = null;
 let currentQuizRevealed = false;
-let currentChapterId = "probability";
+let currentChapterId = "chapter1";
 
 const STORAGE_PREFIX = "QuizHistory_";
 
